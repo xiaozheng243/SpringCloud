@@ -1,11 +1,11 @@
 server:
-  port: 7001 # 端口号
+  port: 7003 # 端口号
 eureka:
   instance:
-    hostname: eurekaserver01.com # 服务地址
+    hostname: eurekaserver03.com # 服务地址
   client:
     register-with-eureka: false #是否向注册中心注册
     fetch-registry: false # 是否去用户中心获取其他已注册服务信息
 #    eureka-server-u-r-l-context: http://${eureka.instance.hostname}:${server.port}/eureka/
     service-url:
-      defaultZone: http://eurekaserver02.com:7002/eureka/,http://eurekaserver03.com:7003/eureka/
+      defaultZone: http://eurekaserver02.com:7002/eureka/,http://eurekaserver01.com:7001/eureka/
