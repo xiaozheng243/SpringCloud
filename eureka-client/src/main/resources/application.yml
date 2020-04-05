@@ -3,7 +3,7 @@ server:
 
 spring:
    application:
-      name: micro-client:8001
+      name: micro-client
 eureka:
   client:
     fetch-registry: true # 是否去注册中心获取其他注册模块信息
