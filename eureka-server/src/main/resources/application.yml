@@ -1,6 +1,9 @@
 server:
   port: 7001 # 端口号
 eureka:
+  server:
+    enable-self-preservation: false # 关闭自我保护
+    eviction-interval-timer-in-ms: 4000 # 剔除服务间隔
   instance:
     hostname: eurekaserver01.com # 服务地址
   client:
