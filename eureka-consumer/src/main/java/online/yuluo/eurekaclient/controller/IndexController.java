@@ -15,6 +15,8 @@ import org.springframework.web.client.RestTemplate;
 
 import com.alibaba.fastjson.JSON;
 
+import online.yuluo.eurekaclient.RemoteIndexService.ClientIndexService;
+
 @RestController
 @RequestMapping(value = "/api/consumer")
 public class IndexController {
@@ -26,6 +28,9 @@ public class IndexController {
 
 	@Autowired
 	private DiscoveryClient discoveryClient;
+
+	@Autowired
+	private ClientIndexService remoteService;
 
 	@GetMapping(value = "/getMsg")
 	public String getMsg() {
@@ -51,4 +56,8 @@ public class IndexController {
 		return JSON.toJSONString(instanceList);
 	}
 
+	@GetMapping(value = "/getRemoteMsg")
+	public String remoteIndexController() {
+		return remoteService.getMsg();
+	}
 }
