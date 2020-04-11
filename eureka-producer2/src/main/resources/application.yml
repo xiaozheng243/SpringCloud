@@ -1,0 +1,18 @@
+server:
+  port: 7003 # 端口号
+eureka:
+  client:
+    register-with-eureka: true #是否向注册中心注册
+    fetch-registry: true # 是否去用户中心获取其他已注册服务信息
+    prefer-same-zone-eureka: true
+    region: shanghai
+    availability-zones:
+      shanghai: zone2
+    service-url:
+      zone2: http://eurekaserver02.com:7002/eureka/
+      zone1: http://eurekaserver01.com:7001/eureka/
+  instance:
+    instance-id: micro-client:8003 # 本服务实例信息
+    prefer-ip-address: true # 将服务IP注册到注册中心
+    metadata-map:
+      zone: zone2 # 当前服务所属zone
