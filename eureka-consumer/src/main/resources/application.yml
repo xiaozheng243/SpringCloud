@@ -18,3 +18,5 @@ eureka:
   instance:
     instance-id: micro-consumer:9001 # 本服务实例信息
     prefer-ip-address: true
+    metadata-map:
+      zone: zone1
