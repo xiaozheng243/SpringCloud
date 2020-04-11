@@ -6,6 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient("micro-client")
 public interface ClientIndexService {
 
-	@GetMapping(value = "/getMsg")
+	@GetMapping(value = "/api/index/getMsg")
 	public String getMsg();
 }
