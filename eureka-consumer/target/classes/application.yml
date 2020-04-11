@@ -1,0 +1,20 @@
+server:
+  port: 9001
+
+spring:
+   application:
+      name: micro-consumer
+eureka:
+  client:
+    fetch-registry: true # 是否去注册中心获取其他注册模块信息
+    register-with-eureka: true
+    prefer-same-zone-eureka: true
+    region: shenzhen
+    availability-zones:
+      shenzhen: zone1,zone2
+    service-url:
+      zone1: http://eurekaserver01.com:7001/eureka
+      zone2: http://eurekaserver02.com:7002/eureka
+  instance:
+    instance-id: micro-consumer:9001 # 本服务实例信息
+    prefer-ip-address: true

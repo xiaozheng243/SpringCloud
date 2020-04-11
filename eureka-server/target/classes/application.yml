@@ -1,0 +1,18 @@
+server:
+  port: 7001 # 端口号
+eureka:
+  server:
+    enable-self-preservation: false # 关闭自我保护
+    eviction-interval-timer-in-ms: 4000 # 剔除服务间隔
+  instance:
+    hostname: eurekaserver01.com # 服务地址
+  client:
+    register-with-eureka: false #是否向注册中心注册
+    fetch-registry: false # 是否去用户中心获取其他已注册服务信息
+    prefer-same-zone-eureka: true # 是否以availability-zones为优先级
+    region: shenzhen
+    availability-zones:  # prefer-same-zone-eureka为true时，以此为优先级（前高后低）
+      shenzhen: zone1
+    service-url:
+      zone1: http://eurekaserver01.com:7001/eureka/
+      zone2: http://eurekaserver02.com:7002/eureka/

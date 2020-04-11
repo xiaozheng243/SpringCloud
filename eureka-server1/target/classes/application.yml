@@ -1,0 +1,15 @@
+server:
+  port: 7002 # 端口号
+eureka:
+  instance:
+    hostname: eurekaserver02.com # 服务地址
+  client:
+    register-with-eureka: false #是否向注册中心注册
+    fetch-registry: false # 是否去用户中心获取其他已注册服务信息
+    prefer-same-zone-eureka: true # 是否以availability-zones为优先级
+    region: shanghai
+    availability-zones: # prefer-same-zone-eureka为true时，以此为优先级（前高后低）
+      shanghai: zone2
+    service-url:
+      zone2: http://eurekaserver02.com:7002/eureka/
+      zone1: http://eurekaserver01.com:7001/eureka/
